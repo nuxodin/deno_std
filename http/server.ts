@@ -341,7 +341,7 @@ export class Server implements AsyncIterable<ServerRequest> {
     } else if (err) {
 console.log(req)
       // An error was thrown while parsing request headers.
-      await writeResponse(req!.w, {
+      await writeResponse(req!.w, { // new?
         status: 400,
         body: new TextEncoder().encode(`${err.message}\r\n\r\n`)
       });
