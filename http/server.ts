@@ -340,9 +340,10 @@ console.log(req)
     if (req! === EOF) {
       // The connection was gracefully closed.
     } else if (err) {
+console.log(1)
 console.log(req)
       // An error was thrown while parsing request headers.
-      await writeResponse(req!.w, { // new2?
+      await writeResponse(req!.w, {
         status: 400,
         body: new TextEncoder().encode(`${err.message}\r\n\r\n`)
       });
