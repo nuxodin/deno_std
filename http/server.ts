@@ -321,7 +321,6 @@ export class Server implements AsyncIterable<ServerRequest> {
       try {
         req = await readRequest(bufr);
       } catch (e) {
-console.log(req)
         err = e;
         break;
       }
@@ -340,8 +339,6 @@ console.log(req)
     if (req! === EOF) {
       // The connection was gracefully closed.
     } else if (err) {
-console.log(1)
-console.log(req)
       // An error was thrown while parsing request headers.
       await writeResponse(req!.w, {
         status: 400,
