@@ -319,7 +319,8 @@ export class Server implements AsyncIterable<ServerRequest> {
 
     while (!this.closing) {
       try {
-        req = await readRequest(bufr);
+        let tmp = await readRequest(bufr);
+req = tmp;
       } catch (e) {
         err = e;
         break;
