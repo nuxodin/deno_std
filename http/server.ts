@@ -321,10 +321,10 @@ export class Server implements AsyncIterable<ServerRequest> {
       try {
         req = await readRequest(bufr);
       } catch (e) {
+console.log(req)
         err = e;
         break;
       }
-console.log(req)
       if (req === EOF) {
         break;
       }
@@ -342,7 +342,7 @@ console.log(req)
     } else if (err) {
 console.log(req)
       // An error was thrown while parsing request headers.
-      await writeResponse(req!.w, { // new1?
+      await writeResponse(req!.w, { // new2?
         status: 400,
         body: new TextEncoder().encode(`${err.message}\r\n\r\n`)
       });
